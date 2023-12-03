@@ -4,6 +4,7 @@ import os
 import gspread
 import json
 from oauth2client.service_account import ServiceAccountCredentials
+scope = ['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive']
 
 # Secretsから認証情報を取得
 google_credentials = json.loads(st.secrets["google_credentials"]["key"])

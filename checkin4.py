@@ -2,8 +2,12 @@ import streamlit as st
 from datetime import datetime
 import os
 import gspread
+import json
 from oauth2client.service_account import ServiceAccountCredentials
 
+# Secretsから認証情報を取得
+google_credentials = json.loads(st.secrets["google_credentials"]["key"])
+creds = ServiceAccountCredentials.from_json_keyfile_dict(google_credentials, scope)
 # 環境変数からGoogle認証情報を取得
 google_credentials_path = os.getenv('GOOGLE_CREDENTIALS_JSON_PATH')
 

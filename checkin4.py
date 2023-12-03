@@ -14,7 +14,8 @@ google_credentials_path = os.getenv('GOOGLE_CREDENTIALS_JSON_PATH')
 
 # Googleスプレッドシートの設定
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
-creds = ServiceAccountCredentials.from_json_keyfile_name(google_credentials_path, scope)
+creds = ServiceAccountCredentials.from_json_keyfile_dict(google_credentials, scope)
+
 client = gspread.authorize(creds)
 sheet = client.open('checkin-airbnb').sheet1
 
